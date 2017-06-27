@@ -2,6 +2,7 @@ package com.accenture.training.bl;
 
 import java.util.List;
 
+import com.accenture.training.exeption.BLException;
 import com.accenture.training.model.Product;
 
 /**
@@ -11,10 +12,10 @@ import com.accenture.training.model.Product;
  */
 public interface ProductBL {
 	
-	public void createProduct(Product product);
-	public void updateProduct(Product product);
-	public void deleteProductLogically(Integer IdProduct);
-	public Product findProductById(Integer IdProduct);
-	public Product findProductByName(String nameProduct);
-	public List<Product> findAllProducts();
+	public void createProduct(Product product) throws BLException;
+	public void updateProduct(Product product) throws BLException;
+	public void deleteProductLogically(Integer IdProduct) throws BLException;
+	public Product findProductById(Integer IdProduct) throws BLException;
+	public Product findProductByName(String nameProduct) throws BLException;
+	public List<Product> findAllProducts() throws BLException;
 }

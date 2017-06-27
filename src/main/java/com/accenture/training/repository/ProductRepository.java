@@ -1,5 +1,7 @@
 package com.accenture.training.repository;
 
+import java.util.List;
+
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,5 +15,7 @@ import com.accenture.training.model.Product;
 @Repository
 public interface ProductRepository extends CrudRepository<Product,Integer> {
 
-	public Product findByStrName(String strName);
+	public Product findByStrNameAndBlnIsActive(String strName, Boolean blnIsActive);
+	public List<Product> findByBlnIsActive(Boolean blnIsActive);
+	public Product findByIntIdAndBlnIsActive(Integer idProduct, Boolean blnIsActive);
 }
