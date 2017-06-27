@@ -17,16 +17,16 @@ import com.accenture.training.repository.ProductRepository;
 @Service
 public class ProductBLImpl implements ProductBL{
 
-	private final String NULL_PRODUCT_MSG = "The product can not be null";
-	private final String NULL_ID_MSG = "The product id can not be null";
-	private final String NULL_NAME_MSG = "The product name can not be null";
-	private final String EMPTY_NAME_MSG = "The product name can not be empty";
-	private final String NULL_DESCRIPTION_MSG = "The product description can not be null or empty";
-	private final String EMPTY_DESCRIPTION_MSG = "The product description can not be empty";
-	private final String NULL_TYPE_MSG = "The product can not be null";
-	private final String PRODUCT_EXIST_MSG = "The product with this id already exist";
-	private final String PRODUCT_NOT_EXIST_MSG = "The product do not exist";
-	private final String SAVE_INACTIVE_PRODUCT_MSG = "Error saving product: you can not save an inactive product";
+	public static final String NULL_PRODUCT_MSG = "The product can not be null";
+	public static final String NULL_ID_MSG = "The product id can not be null";
+	public static final String NULL_NAME_MSG = "The product name can not be null";
+	public static final String EMPTY_NAME_MSG = "The product name can not be empty";
+	public static final String NULL_DESCRIPTION_MSG = "The product description can not be null or empty";
+	public static final String EMPTY_DESCRIPTION_MSG = "The product description can not be empty";
+	public static final String NULL_TYPE_MSG = "The product can not be null";
+	public static final String PRODUCT_EXIST_MSG = "The product with this id already exist";
+	public static final String PRODUCT_NOT_EXIST_MSG = "The product do not exist";
+	public static final String SAVE_INACTIVE_PRODUCT_MSG = "Error saving product: you can not save an inactive product";
 	
 	private final Boolean ACTIVE_PRODUCT= true;
 
