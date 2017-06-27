@@ -25,7 +25,7 @@ public class Product {
 	@Column(name="intType")
 	private Integer intProductType = 0;
 	@Column(name="blnIsActive")
-	private Boolean blnIsActive = false;
+	private Boolean blnIsActive = true;
 	
 	
 	public Product() {
