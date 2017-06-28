@@ -58,13 +58,13 @@ public class ProductBLImpl implements ProductBL{
 		if (null == strName) {
 			throw new BLException(NULL_NAME_MSG);
 		}
-		if (strName.isEmpty()) {
+		if (strName.trim().isEmpty()) {
 			throw new BLException(EMPTY_NAME_MSG);
 		}
 		if (null == strDescription) {
 			throw new BLException(NULL_DESCRIPTION_MSG);
 		}
-		if (strDescription.isEmpty()) {
+		if (strDescription.trim().isEmpty()) {
 			throw new BLException(EMPTY_DESCRIPTION_MSG);
 		}
 		if (null == product.getIntNmbrOfPeople()) {
@@ -108,13 +108,13 @@ public class ProductBLImpl implements ProductBL{
 		if (null == strName) {
 			throw new BLException(NULL_NAME_MSG);
 		}
-		if (strName.isEmpty()) {
+		if (strName.trim().isEmpty()) {
 			throw new BLException(EMPTY_NAME_MSG);
 		}
 		if (null == strDescription) {
 			throw new BLException(NULL_DESCRIPTION_MSG);
 		}
-		if (strDescription.isEmpty()) {
+		if (strDescription.trim().isEmpty()) {
 			throw new BLException(EMPTY_DESCRIPTION_MSG);
 		}
 		if (null == product.getIntNmbrOfPeople()) {
@@ -186,7 +186,7 @@ public class ProductBLImpl implements ProductBL{
 	 * @return product The product with the specified name that is active in the database.
 	 */
 	@Override
-	public Product findProductByName(String nameProduct) throws BLException {
+	public Product findProductByNameContaining(String nameProduct) throws BLException {
 		if (null == nameProduct) {
 			throw new BLException(NULL_NAME_MSG);
 		}

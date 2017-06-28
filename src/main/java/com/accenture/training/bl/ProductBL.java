@@ -16,6 +16,6 @@ public interface ProductBL {
 	public void updateProduct(Product product) throws BLException;
 	public void deleteProductLogically(Integer IdProduct) throws BLException;
 	public Product findProductById(Integer IdProduct) throws BLException;
-	public Product findProductByName(String nameProduct) throws BLException;
+	public Product findProductByNameContaining(String nameProduct) throws BLException;
 	public List<Product> findAllProducts() throws BLException;
 }
