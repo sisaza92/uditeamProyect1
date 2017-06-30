@@ -1,42 +1,78 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head>
-		 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		 <title>Product list</title>
-	</head>
-	<body>
-	<form th:action="@{/updateProduct}" th:object="${product}" th:method="post">
-		<div class="tg-wrap"><table>
-			  <tr>
-			    <td>Product Name</td>
-			    <td><input type="text" th:field="*{strName}" class="form-control" id="campo3"/></td>
-			  </tr>
-			  <tr>
-			    <td>Description</td>
-			    <td><input type="text" th:field="*{strDescription}" class="form-control" id="campo3"/></td>
-			  </tr>
-			  <tr>
-			    <td>People singed in</td>
-			    <td><input type="text" th:field="*{intNmbrOfPeople}" class="form-control" id="campo3"/></td>
-			  </tr>
-			  <tr>
-			    <td>Product Type</td>
-			    <td>  
-				    <select name="cars" th:field="*{intProductType}">
-					    <option value="1">Ahorro</option>
-					    <option value="2">Credito</option>
-					</select>
-			  	</td>
-			  	<td>
-			  	    <div>
-			  	    <input type="hidden" th:field="*{intId}" class="form-control" id="campo3"/>
-				      <button type="submit">Salvar</button>
-				      <a href="index.html">Cancelar</a>
-				    </div>
-			  	</td>			  	
-			  </tr>
-			</table>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>Edit Product</title>
+</head>
+<body class="well">
+	<div class="row">
+		<p></p>
+	</div>
+	<div class="row text-center">
+		<div class="col-md-4"></div>
+		<div class="col-md-4">
+			<h1 class="well">Edit Product</h1>
 		</div>
-	</form>
-	</body>
+		<div class="col-md-4"><br></br></div>
+	</div>
+	<div class="row text-center">
+		<div class="col-md-4"></div>
+		<div class="col-md-4 text-center">
+			<form th:action="@{/updateProduct}" th:object="${product}"
+				th:method="post">
+				<div class="tg-wrap">
+					<table class="table">
+						<tr>
+							<th class="info text-center">Product Name</th>
+							<td><input type="text" th:field="*{strName}"
+								class="form-control" id="campo3" /></td>
+						</tr>
+						<tr>
+							<th class="info text-center">Description</th>
+							<td><input type="text" th:field="*{strDescription}"
+								class="form-control" id="campo3" /></td>
+						</tr>
+						<tr>
+							<th class="info text-center">People singed in</th>
+							<td><input type="text" th:field="*{intNmbrOfPeople}"
+								class="form-control" id="campo3" /></td>
+						</tr>
+						<tr>
+							<th class="info text-center">Product Type</th>
+							<td class="text-left"><select class=" btn btn-primary" name="cars"
+								th:field="*{intProductType}">
+									<option value="1">Saving</option>
+									<option value="2">Credit</option>
+							</select></td>
+							<td>
+								<div>
+									<input type="hidden" th:field="*{intId}" class="form-control"
+										id="campo3" />
+								</div>
+							</td>
+						</tr>
+					</table>
+					<div th:if="${message != ''}" class="alert alert-warning alert-dismissible" role="alert">
+						<button type="button" class="close" data-dismiss="alert"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<strong>Warning!</strong><div th:text="${message}"></div>
+					</div>
+					<button class=" btn btn-danger" type="submit">Save</button>
+					<a class=" btn btn-danger" th:href="@{/products}">Cancel</a>
+				</div>
+			</form>
+		</div>
+		<div class="col-md-4"></div>
+	</div>
+
+</body>
 </html>
