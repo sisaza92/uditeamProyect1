@@ -212,7 +212,17 @@ public class ProductBLImpl implements ProductBL{
 
 	@Override
 	public List<Product> findProductsByTypeOrName(Integer intProductType, String strName) throws BLException {
-		List<Product> products = (List<Product>) productRepository.findByintProductTypeOrStrNameAndBlnIsActive(intProductType, strName, ACTIVE_PRODUCT);
+		
+		List<Product> products;
+		
+		if (strName.isEmpty() && intProductType != null) {
+			products = productRepository.findByintProductTypeAndBlnIsActive(intProductType, ACTIVE_PRODUCT);
+		}else if (!"".equals(strName) && intProductType == null) {
+			products = productRepository.findByStrNameContainingAndBlnIsActive(strName, ACTIVE_PRODUCT);
+		}else {
+			products = (List<Product>) productRepository.findByintProductTypeOrStrNameAndBlnIsActive(intProductType, strName, ACTIVE_PRODUCT);
+		}
+		
 		return products;
 	}
 
