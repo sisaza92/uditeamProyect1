@@ -47,8 +47,6 @@ public class ProductControllerImpl {
 
 		ModelAndView modelAndView = new ModelAndView();
 		List<Product> products = null;
-		System.err.println(nameProduct);
-		System.err.println(productType);
 		String message = "";
 		try {
 			products = productBL.findProductsByTypeOrName(productType, nameProduct);
@@ -100,10 +98,11 @@ public class ProductControllerImpl {
 		String message = "";
 		try {
 			productBL.createProduct(product);
+			modelAndView.setViewName("redirect:" + PATH_LIST);
 		} catch (BLException e) {
 			message = e.getMessage();
+			modelAndView.setViewName(VIEW_CREATE);
 		}
-		modelAndView.setViewName("redirect:" + PATH_LIST);
 		modelAndView.addObject("message", message);
 
 		return modelAndView;
@@ -134,10 +133,11 @@ public class ProductControllerImpl {
 		String message = "";
 		try {
 			productBL.updateProduct(product);
+			modelAndView.setViewName("redirect:" + PATH_LIST);
 		} catch (BLException e) {
 			message = e.getMessage();
+			modelAndView.setViewName(VIEW_UPDATE);
 		}
-		modelAndView.setViewName("redirect:" + PATH_LIST);
 		modelAndView.addObject("message", message);
 
 		return modelAndView;
