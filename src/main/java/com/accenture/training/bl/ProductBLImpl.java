@@ -186,18 +186,18 @@ public class ProductBLImpl implements ProductBL{
 	 * @return product The product with the specified name that is active in the database.
 	 */
 	@Override
-	public Product findProductByNameContaining(String nameProduct) throws BLException {
+	public List<Product> findProductsByName(String nameProduct) throws BLException {
 		if (null == nameProduct) {
 			throw new BLException(NULL_NAME_MSG);
 		}
 		if (nameProduct.trim().isEmpty()) {
 			throw new BLException(EMPTY_NAME_MSG);
 		}
-		Product product = productRepository.findByStrNameAndBlnIsActive(nameProduct,ACTIVE_PRODUCT);
-		if (null == product) {
+		List<Product> products = productRepository.findByStrNameContainingAndBlnIsActive(nameProduct,ACTIVE_PRODUCT);
+		if (null == products || 0 == products.size()) {
 			throw new BLException(PRODUCT_NOT_EXIST_MSG);
 		}
-		return product;
+		return products;
 	}
 
 	/**
@@ -207,6 +207,12 @@ public class ProductBLImpl implements ProductBL{
 	@Override
 	public List<Product> findAllProducts() {
 		List<Product> products = (List<Product>) productRepository.findByBlnIsActive(ACTIVE_PRODUCT);
+		return products;
+	}
+
+	@Override
+	public List<Product> findProductsByTypeOrName(Integer intProductType, String strName) throws BLException {
+		List<Product> products = (List<Product>) productRepository.findByintProductTypeOrStrNameAndBlnIsActive(intProductType, strName, ACTIVE_PRODUCT);
 		return products;
 	}
 

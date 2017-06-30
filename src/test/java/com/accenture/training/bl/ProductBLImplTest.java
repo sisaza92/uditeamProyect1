@@ -180,6 +180,6 @@ public class ProductBLImplTest {
 		String nameProduct = "";
 		thrown.expect(BLException.class);
 		thrown.expectMessage(ProductBLImpl.EMPTY_NAME_MSG);
-		Product product = productBL.findProductByNameContaining(nameProduct);		
+		List<Product> products = productBL.findProductsByName(nameProduct);		
 	}
 }

@@ -15,7 +15,8 @@ import com.accenture.training.model.Product;
 @Repository
 public interface ProductRepository extends CrudRepository<Product,Integer> {
 
-	public Product findByStrNameAndBlnIsActive(String strName, Boolean blnIsActive);
+	public List<Product> findByStrNameContainingAndBlnIsActive(String strName, Boolean blnIsActive);
 	public List<Product> findByBlnIsActive(Boolean blnIsActive);
 	public Product findByIntIdAndBlnIsActive(Integer idProduct, Boolean blnIsActive);
+	public List<Product> findByintProductTypeOrStrNameAndBlnIsActive(Integer intProductType,String strName, Boolean blnIsActive);
 }
