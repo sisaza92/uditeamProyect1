@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		 <title>Product list</title>
+	</head>
+	<body>
+	<form th:action="@{/updateProduct}" th:object="${product}" th:method="post">
+		<div class="tg-wrap"><table>
+			  <tr>
+			    <td>Product Name</td>
+			    <td><input type="text" th:field="*{strName}" class="form-control" id="campo3"/></td>
+			  </tr>
+			  <tr>
+			    <td>Description</td>
+			    <td><input type="text" th:field="*{strDescription}" class="form-control" id="campo3"/></td>
+			  </tr>
+			  <tr>
+			    <td>People singed in</td>
+			    <td><input type="text" th:field="*{intNmbrOfPeople}" class="form-control" id="campo3"/></td>
+			  </tr>
+			  <tr>
+			    <td>Product Type</td>
+			    <td>  
+				    <select name="cars" th:field="*{intProductType}">
+					    <option value="1">Ahorro</option>
+					    <option value="2">Credito</option>
+					</select>
+			  	</td>
+			  	<td>
+			  	    <div>
+			  	    <input type="hidden" th:field="*{intId}" class="form-control" id="campo3"/>
+				      <button type="submit">Salvar</button>
+				      <a href="index.html">Cancelar</a>
+				    </div>
+			  	</td>			  	
+			  </tr>
+			</table>
+		</div>
+	</form>
+	</body>
+</html>

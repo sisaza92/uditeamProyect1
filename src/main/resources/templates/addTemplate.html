@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+ <meta charset="utf-8"/>
+ <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+ <meta name="viewport" content="width=device-width, initial-scale=1"/>
+ <title>Administración de Productos</title>
+</head>
+<body> 
+<nav class="navbar navbar-inverse navbar-fixed-top">
+ <div class="container-fluid">
+  <div class="navbar-header">
+   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+   </button>
+   <a class="navbar-brand" href="#">Product Management</a>
+  </div>
+  <div id="navbar" class="navbar-collapse collapse">
+   <ul class="nav navbar-nav navbar-right">
+    <li><a href="#">Start</a></li>
+    <li><a href="#">Options</a></li>
+    <li><a href="#">Profile</a></li>
+    <li><a href="#">Help</a></li>
+   </ul>
+  </div>
+ </div>
+</nav>
+<div id="main" class="container-fluid">
+ <h3 class="page-header">Add new product</h3>
+ <form action="index.html" th:action="@{/products}" th:object="${product}" method="post">
+  <!-- area de campos do form -->
+  <div class="row" style="display: grid;">
+ <div class="form-group col-md-4">
+   <label for="campo1">Name</label>
+   <input type="text" th:field="*{strName}" class="form-control" id="campo1"/>
+ </div>
+
+ <div class="form-group col-md-4">
+   <label for="campo2">Description</label>
+   <input type="text" th:field="*{strDescription}" class="form-control" id="campo3"/>
+ </div>
+
+ <div class="form-group col-md-4">
+   <label for="campo3">Initial people quantity singed</label>
+   <input type="text" th:field="*{intNmbrOfPeople}" class="form-control" id="campo3"/>
+ </div>
+
+ <div class="form-group col-md-4">
+ <div class="dropdown">
+   <label for="campo3">Product Type</label>
+   <button class="btn btn-default dropdown-toggle" type="button" th:field="*{intProductType}" id="campo4" data-toggle="dropdown">Type
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+      <li role="presentation">Ahorro</li>
+      <li role="presentation">Credito</li>
+    </ul>
+    </div>
+ </div>
+</div>
+  <hr />
+  <div id="actions" class="row">
+    <div class="col-md-12">
+      <button type="submit" class="btn btn-primary">Salvar</button>
+      <a href="index.html" class="btn btn-default">Cancelar</a>
+    </div>
+  </div>
+</form>
+</div>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
